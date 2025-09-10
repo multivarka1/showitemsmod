@@ -1,0 +1,20 @@
+{
+  "itemGroup.showitemsmod": "Example Mod Tab",
+  "block.showitemsmod.example_block": "Example Block",
+  "item.showitemsmod.example_item": "Example Item",
+
+  "showitemsmod.configuration.title": "showitemsmod Configs",
+  "showitemsmod.configuration.section.showitemsmod.common.toml": "showitemsmod Configs",
+  "showitemsmod.configuration.section.showitemsmod.common.toml.title": "showitemsmod Configs",
+  "showitemsmod.configuration.items": "Item List",
+  "showitemsmod.configuration.logDirtBlock": "Log Dirt Block",
+  "showitemsmod.configuration.magicNumberIntroduction": "Magic Number Text",
+  "showitemsmod.configuration.magicNumber": "Magic Number",
+
+  "key.categories.showitemsmod": "Show Items Mod",
+  "key.showitemsmod.show_item": "Show Held Item (Shift+T)",
+
+  "message.showitemsmod.no_item": "You are not holding any item",
+  "message.showitemsmod.shows_item": "%s shows %s",
+  "message.showitemsmod.shows_item_count": "%s shows %s x%s"
+}
