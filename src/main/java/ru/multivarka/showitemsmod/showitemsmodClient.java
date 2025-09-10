@@ -3,7 +3,6 @@ package ru.multivarka.showitemsmod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.gui.screens.Screen;
-import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.world.inventory.Slot;
 import org.lwjgl.glfw.GLFW;
@@ -18,15 +17,12 @@ import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
-// This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = showitemsmod.MODID, dist = Dist.CLIENT)
-// You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
 @EventBusSubscriber(modid = showitemsmod.MODID, value = Dist.CLIENT)
 public class showitemsmodClient {
     private static KeyMapping SHOW_ITEM_KEY;
 
     public showitemsmodClient(ModContainer container) {
-        // Allows NeoForge to create a config screen for this mod's configs.
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
@@ -51,7 +47,6 @@ public class showitemsmodClient {
         Minecraft mc = Minecraft.getInstance();
         if (mc.player == null) return;
 
-        // Require Shift + bound key while a container screen is open and cursor hovers an item
         if (Screen.hasShiftDown() && SHOW_ITEM_KEY != null) {
             int boundKey = SHOW_ITEM_KEY.getKey().getValue();
             if (event.getKey() != boundKey) return;

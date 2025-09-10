@@ -20,12 +20,10 @@ public final class Network {
     private Network() {}
 
     public static void init() {
-        // No-op: registration happens via event below.
     }
 
     @SubscribeEvent
     public static void registerPayloads(RegisterPayloadHandlersEvent event) {
-        // Register a very simple serverbound payload without data
         var registrar = event.registrar(showitemsmod.MODID);
         registrar.playToServer(ShowItemPayload.TYPE, ShowItemPayload.CODEC, (msg, ctx) -> {
             var player = (ServerPlayer) ctx.player();
@@ -35,33 +33,28 @@ public final class Network {
 
     private static void handleShowItem(ServerPlayer player, int slotIndex) {
         if (slotIndex < 0 || slotIndex >= player.containerMenu.slots.size()) {
-            // Only from inventory: ignore invalid indexes and never fallback to hand
             return;
         }
 
         ItemStack stack = player.containerMenu.getSlot(slotIndex).getItem();
         if (stack.isEmpty()) {
-            // Notify only the requesting player
             player.sendSystemMessage(Component.translatable("message.showitemsmod.no_item").withStyle(ChatFormatting.RED));
             return;
         }
 
         Component itemName = stack.getHoverName().copy();
 
-        // Colorize by rarity similar to vanilla colors
         ChatFormatting rarityColor;
         Rarity rarity = stack.getRarity();
         switch (rarity) {
             case UNCOMMON -> rarityColor = ChatFormatting.YELLOW;
             case RARE -> rarityColor = ChatFormatting.AQUA;
             case EPIC -> rarityColor = ChatFormatting.LIGHT_PURPLE;
-            default -> rarityColor = ChatFormatting.WHITE; // COMMON and any others
+            default -> rarityColor = ChatFormatting.WHITE;
         }
 
-        // Item component with rarity color and no italics
         Component itemColored = itemName.copy().withStyle(style -> style.withColor(rarityColor).withItalic(Boolean.FALSE));
 
-        // Brackets around the item name like chat links
         Component leftBracket = Component.literal("[").withStyle(s -> s.withColor(ChatFormatting.GRAY).withItalic(Boolean.FALSE));
         Component rightBracket = Component.literal("]").withStyle(s -> s.withColor(ChatFormatting.GRAY).withItalic(Boolean.FALSE));
         Component shown = Component.literal(" ")
@@ -69,7 +62,6 @@ public final class Network {
                 .append(itemColored)
                 .append(rightBracket);
 
-        // Attach vanilla item hover so clients render full tooltip (API-safe via reflection)
         try {
             HoverEvent.ItemStackInfo info = null;
             try {
@@ -91,7 +83,6 @@ public final class Network {
                             Holder<Item> holder = BuiltInRegistries.ITEM.wrapAsHolder(stack.getItem());
                             info = (HoverEvent.ItemStackInfo) ctor2.newInstance(holder, stack.getCount(), null);
                         } catch (NoSuchMethodException e4) {
-                            // No known path; leave info as null
                         }
                     }
                 }
@@ -101,7 +92,6 @@ public final class Network {
                 shown = shown.copy().withStyle(s -> s.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_ITEM, infoFinal)));
             }
         } catch (Throwable ignored) {
-            // Keep message without hover if API differs
         }
 
         int count = stack.getCount();
@@ -110,7 +100,6 @@ public final class Network {
                 : Component.translatable("message.showitemsmod.shows_item", player.getName(), shown);
         Component msg = baseMsg.withStyle(ChatFormatting.GRAY);
 
-        // Broadcast to all players online
         for (ServerPlayer target : player.server.getPlayerList().getPlayers()) {
             target.sendSystemMessage(msg);
         }

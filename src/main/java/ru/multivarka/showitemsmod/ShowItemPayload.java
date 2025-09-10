@@ -5,7 +5,6 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 
-// slotIndex: -1 => use main hand; otherwise use slot index from current container menu
 public record ShowItemPayload(int slotIndex) implements CustomPacketPayload {
     public static final Type<ShowItemPayload> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(showitemsmod.MODID, "show_item"));
 
