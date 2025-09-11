@@ -7,7 +7,6 @@ A NeoForge mod for Minecraft 1.21.1 that lets players showcase inventory items d
 - Chat message includes the item name, quantity, and rarity color, visible to all players on the server.
 - Hovering over the chat entry shows the full item tooltip.
 - English and Russian localization.
-- Config screen hook registered so the mod can be configured from the mod list.
 
 ## Usage
 1. Open your inventory or any container (chest, furnace, etc.).
