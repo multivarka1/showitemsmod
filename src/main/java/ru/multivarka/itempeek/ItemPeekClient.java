@@ -1,4 +1,4 @@
-package ru.multivarka.showitemsmod;
+package ru.multivarka.itempeek;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.KeyMapping;
@@ -17,26 +17,26 @@ import net.neoforged.neoforge.client.event.InputEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
-@Mod(value = showitemsmod.MODID, dist = Dist.CLIENT)
-@EventBusSubscriber(modid = showitemsmod.MODID, value = Dist.CLIENT)
-public class showitemsmodClient {
+@Mod(value = ItemPeek.MODID, dist = Dist.CLIENT)
+@EventBusSubscriber(modid = ItemPeek.MODID, value = Dist.CLIENT)
+public class ItemPeekClient {
     private static KeyMapping SHOW_ITEM_KEY;
 
-    public showitemsmodClient(ModContainer container) {
+    public ItemPeekClient(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
     @SubscribeEvent
     static void onClientSetup(FMLClientSetupEvent event) {
-        showitemsmod.LOGGER.info("Client setup initialized for showitemsmod");
+        ItemPeek.LOGGER.info("Client setup initialized for itempeek");
     }
 
     @SubscribeEvent
     public static void registerKeys(RegisterKeyMappingsEvent event) {
         SHOW_ITEM_KEY = new KeyMapping(
-                "key.showitemsmod.show_item",
+                "key.itempeek.show_item",
                 GLFW.GLFW_KEY_T,
-                "key.categories.showitemsmod");
+                "key.categories.itempeek");
         event.register(SHOW_ITEM_KEY);
     }
 

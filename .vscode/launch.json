@@ -16,7 +16,7 @@
       ],
       "vmArgs": [
         "@C:\\Users\\grego\\Documents\\showitemsmod\\build\\moddev\\clientRunVmArgs.txt",
-        "-Dfml.modFolders\u003dshowitemsmod%%C:\\Users\\grego\\Documents\\showitemsmod\\bin\\main"
+        "-Dfml.modFolders\u003ditempeek%%C:\\Users\\grego\\Documents\\showitemsmod\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\run",
       "env": {},
@@ -38,7 +38,7 @@
       ],
       "vmArgs": [
         "@C:\\Users\\grego\\Documents\\showitemsmod\\build\\moddev\\dataRunVmArgs.txt",
-        "-Dfml.modFolders\u003dshowitemsmod%%C:\\Users\\grego\\Documents\\showitemsmod\\bin\\main"
+        "-Dfml.modFolders\u003ditempeek%%C:\\Users\\grego\\Documents\\showitemsmod\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\run",
       "env": {},
@@ -60,7 +60,7 @@
       ],
       "vmArgs": [
         "@C:\\Users\\grego\\Documents\\showitemsmod\\build\\moddev\\gameTestServerRunVmArgs.txt",
-        "-Dfml.modFolders\u003dshowitemsmod%%C:\\Users\\grego\\Documents\\showitemsmod\\bin\\main"
+        "-Dfml.modFolders\u003ditempeek%%C:\\Users\\grego\\Documents\\showitemsmod\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\run",
       "env": {},
@@ -82,7 +82,7 @@
       ],
       "vmArgs": [
         "@C:\\Users\\grego\\Documents\\showitemsmod\\build\\moddev\\serverRunVmArgs.txt",
-        "-Dfml.modFolders\u003dshowitemsmod%%C:\\Users\\grego\\Documents\\showitemsmod\\bin\\main"
+        "-Dfml.modFolders\u003ditempeek%%C:\\Users\\grego\\Documents\\showitemsmod\\bin\\main"
       ],
       "cwd": "${workspaceFolder}\\run",
       "env": {},

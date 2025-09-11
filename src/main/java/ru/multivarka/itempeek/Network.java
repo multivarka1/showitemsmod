@@ -1,4 +1,4 @@
-package ru.multivarka.showitemsmod;
+package ru.multivarka.itempeek;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -15,7 +15,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 
-@EventBusSubscriber(modid = showitemsmod.MODID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = ItemPeek.MODID, bus = EventBusSubscriber.Bus.MOD)
 public final class Network {
     private Network() {}
 
@@ -24,8 +24,8 @@ public final class Network {
 
     @SubscribeEvent
     public static void registerPayloads(RegisterPayloadHandlersEvent event) {
-        var registrar = event.registrar(showitemsmod.MODID);
-        registrar.playToServer(ShowItemPayload.TYPE, ShowItemPayload.CODEC, (msg, ctx) -> {
+        var registrar = event.registrar(ItemPeek.MODID);
+        registrar.playToServer(ItemPeekPayload.TYPE, ItemPeekPayload.CODEC, (msg, ctx) -> {
             var player = (ServerPlayer) ctx.player();
             ctx.enqueueWork(() -> handleShowItem(player, msg.slotIndex()));
         });
@@ -38,7 +38,7 @@ public final class Network {
 
         ItemStack stack = player.containerMenu.getSlot(slotIndex).getItem();
         if (stack.isEmpty()) {
-            player.sendSystemMessage(Component.translatable("message.showitemsmod.no_item").withStyle(ChatFormatting.RED));
+            player.sendSystemMessage(Component.translatable("message.itempeek.no_item").withStyle(ChatFormatting.RED));
             return;
         }
 
@@ -96,8 +96,8 @@ public final class Network {
 
         int count = stack.getCount();
         net.minecraft.network.chat.MutableComponent baseMsg = (count > 1)
-                ? Component.translatable("message.showitemsmod.shows_item_count", player.getName(), shown, count)
-                : Component.translatable("message.showitemsmod.shows_item", player.getName(), shown);
+                ? Component.translatable("message.itempeek.shows_item_count", player.getName(), shown, count)
+                : Component.translatable("message.itempeek.shows_item", player.getName(), shown);
         Component msg = baseMsg.withStyle(ChatFormatting.GRAY);
 
         for (ServerPlayer target : player.server.getPlayerList().getPlayers()) {
@@ -106,6 +106,6 @@ public final class Network {
     }
 
     public static void sendShowItemToServer(int slotIndex) {
-        PacketDistributor.sendToServer(new ShowItemPayload(slotIndex));
+        PacketDistributor.sendToServer(new ItemPeekPayload(slotIndex));
     }
 }

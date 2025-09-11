@@ -1,0 +1,20 @@
+{
+  "itemGroup.itempeek": "Example Mod Tab",
+  "block.itempeek.example_block": "Example Block",
+  "item.itempeek.example_item": "Example Item",
+
+  "itempeek.configuration.title": "itempeek Configs",
+  "itempeek.configuration.section.itempeek.common.toml": "itempeek Configs",
+  "itempeek.configuration.section.itempeek.common.toml.title": "itempeek Configs",
+  "itempeek.configuration.items": "Item List",
+  "itempeek.configuration.logDirtBlock": "Log Dirt Block",
+  "itempeek.configuration.magicNumberIntroduction": "Magic Number Text",
+  "itempeek.configuration.magicNumber": "Magic Number",
+
+  "key.categories.itempeek": "Show Items Mod",
+  "key.itempeek.show_item": "Show Held Item (Shift+T)",
+
+  "message.itempeek.no_item": "You are not holding any item",
+  "message.itempeek.shows_item": "%s shows %s",
+  "message.itempeek.shows_item_count": "%s shows %s x%s"
+}
