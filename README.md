@@ -1,25 +1,19 @@
+# Show Items Mod
 
-Installation information
-=======
+A NeoForge mod for Minecraft 1.21.1 that lets players showcase inventory items directly in chat.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## Features
+- Press **Shift + T** while hovering an item in any container screen to broadcast it.
+- Chat message includes the item name, quantity, and rarity color, visible to all players on the server.
+- Hovering over the chat entry shows the full item tooltip.
+- English and Russian localization.
+- Config screen hook registered so the mod can be configured from the mod list.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## Usage
+1. Open your inventory or any container (chest, furnace, etc.).
+2. Hover over the item you want to display.
+3. Hold **Shift** and press the configured key (default **T**).
+4. All players receive a chat message with the item preview.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
-
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+## License
+All Rights Reserved.
