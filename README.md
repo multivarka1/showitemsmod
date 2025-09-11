@@ -1,4 +1,4 @@
-# Show Items Mod
+# Item Peek
 
 A NeoForge mod for Minecraft 1.21.1 that lets players showcase inventory items directly in chat.
 
@@ -16,4 +16,4 @@ A NeoForge mod for Minecraft 1.21.1 that lets players showcase inventory items d
 4. All players receive a chat message with the item preview.
 
 ## License
-All Rights Reserved.
+MIT.
