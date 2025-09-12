@@ -1,0 +1,19 @@
+{
+  "itemGroup.itempeek": "Вкладка мода",
+
+  "key.categories.itempeek": "Показ предметов",
+  "key.itempeek.show_item": "Показать предмет (Shift+T)",
+
+  "itempeek.configuration.title": "Настройки itempeek",
+  "itempeek.configuration.section.itempeek.common.toml": "Настройки itempeek",
+  "itempeek.configuration.section.itempeek.common.toml.title": "Настройки itempeek",
+  "itempeek.configuration.items": "Список предметов",
+  "itempeek.configuration.logDirtBlock": "Логировать блок Земля",
+  "itempeek.configuration.magicNumberIntroduction": "Текст магического числа",
+  "itempeek.configuration.magicNumber": "Магическое число",
+
+  "message.itempeek.no_item": "Нет предмета под курсором",
+  "message.itempeek.shows_item": "%s показывает %s",
+  "message.itempeek.shows_item_count": "%s показывает %s x%s"
+}
+
